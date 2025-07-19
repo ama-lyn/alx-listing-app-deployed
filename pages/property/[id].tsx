@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { PropertyProps } from '@/interfaces';
+import Image from 'next/image';
 
 const PropertyDetail = () => {
   const router = useRouter();
@@ -87,113 +88,139 @@ const PropertyDetail = () => {
         </div>
       </div>
 
-      {/* Main Content - Image and Description side by side */}
       <div className="grid grid-cols-2 gap-8 mb-8">
         {/* Left side - Image */}
         <div>
-        <div className="relative rounded-xl overflow-hidden">
-          <img
-            src={property.image}
-            alt={property.name}
-            className="w-full h-[400px] object-cover"
-          />
-          {property.discount && (
-            <div className="absolute top-4 left-4 bg-[#2CC39B] text-white px-3 py-1 rounded-full">
-              {property.discount}% OFF
-            </div>
-          )}
-        </div>
-
-        <div className="flex justify-between items-center">
-          <div className="flex items-center space-x-2 text-sm text-gray-600 border border-[#E9E9E9] rounded-xl px-2 py-1">
-            <div className="flex items-center">
-              <img src="/assets/images/bed.png" alt="Bed" className="size-[16px]" />
-              <span className="pl-1">{property.offers.bed}</span>
-            </div>
-            <div className="flex items-center">
-              <img src="/assets/images/bathtub.png" alt="Shower" className="size-[15px]"/>
-              <span className="pl-1">{property.offers.shower}</span>
-            </div>
-            <div className="flex items-center">
-             <img src="/assets/images/people.png" alt="Occupants" className="size-[16px]"/>
-              <span className="pl-1">{property.offers.occupants}</span>
-            </div>
-          </div>
-        </div>
-        </div>
-       
-
-        
-        <div>
-        <div className="relative max-w-[400px] mx-auto" 
-           onMouseEnter={() => setShowTooltip(true)}
-           onMouseLeave={() => setShowTooltip(false)}>
-        {showTooltip && (
-          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg text-sm">
-            This booking form is currently static
-          </div>
-        )}
-        <div className="border border-gray-200 rounded-xl p-6 shadow-sm">
-          <div className="flex justify-between items-center mb-6">
-            <div>
-              <span className="text-2xl font-bold">${property.price}</span>
-              <span className="text-gray-600">/night</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 37 35" fill="#FAC02B">
-                <path d="M17.1044 2.60318C17.6447 1.51821 19.187 1.50262 19.7491 2.57645L24.1844 11.0507L34.5946 12.9634C35.5128 13.1321 35.8517 14.2713 35.1751 14.9145L28.2151 21.5306L29.5194 32.8088C29.6258 33.7291 28.6501 34.3865 27.8371 33.9423L18.4006 28.7859L9.01381 33.9151C8.19144 34.3645 7.20771 33.6868 7.3345 32.7583L8.86762 21.5306L1.69235 14.9265C0.997719 14.2871 1.33461 13.1289 2.2638 12.962L12.8983 11.0507L17.1044 2.60318Z" />
-              </svg>
-              <span>{property.rating}</span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2 mb-4">
-            <div className="border border-gray-300 rounded-lg p-3">
-              <p className="text-xs font-medium">CHECK-IN</p>
-              <p className="text-gray-600">Add date</p>
-            </div>
-            <div className="border border-gray-300 rounded-lg p-3">
-              <p className="text-xs font-medium">CHECKOUT</p>
-              <p className="text-gray-600">Add date</p>
-            </div>
-          </div>
-
-          <div className="border-t border-b border-gray-200 py-4 space-y-4 mb-4">
-            <div className="flex justify-between">
-              <span>${property.price} x {nights} nights</span>
-              <span>${subtotal}</span>
-            </div>
-            <div className="flex justify-between">
-              <span>Service fee</span>
-              <span>${serviceFee}</span>
-            </div>
-            {weeklyDiscount > 0 && (
-              <div className="flex justify-between text-green-600">
-                <span>Weekly discount</span>
-                <span>-${weeklyDiscount}</span>
+          <div className="relative rounded-xl overflow-hidden h-[400px]">
+            <Image
+              src={property.image}
+              alt={property.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            {property.discount && (
+              <div className="absolute top-4 left-4 bg-[#2CC39B] text-white px-3 py-1 rounded-full z-10">
+                {property.discount}% OFF
               </div>
             )}
           </div>
 
-          <div className="flex justify-between font-bold mb-6">
-            <span>Total</span>
-            <span>${total}</span>
+          <div className="flex justify-between items-center mt-4">
+            <div className="flex items-center space-x-2 text-sm text-gray-600 border border-[#E9E9E9] rounded-xl px-2 py-1">
+              <div className="flex items-center">
+                <Image
+                  src="/assets/images/bed.png"
+                  alt="Bed"
+                  width={16}
+                  height={16}
+                />
+                <span className="pl-1">{property.offers.bed}</span>
+              </div>
+              <div className="flex items-center">
+                <Image
+                  src="/assets/images/bathtub.png"
+                  alt="Shower"
+                  width={15}
+                  height={15}
+                />
+                <span className="pl-1">{property.offers.shower}</span>
+              </div>
+              <div className="flex items-center">
+                <Image
+                  src="/assets/images/people.png"
+                  alt="Occupants"
+                  width={16}
+                  height={16}
+                />
+                <span className="pl-1">{property.offers.occupants}</span>
+              </div>
+            </div>
           </div>
+        </div>
 
-          <button className="w-full bg-[#34967C] text-white py-3 rounded-lg hover:bg-opacity-90 transition-colors">
-            Reserve
-          </button>
+        {/* Right side - Booking Form */}
+        <div>
+          <div className="relative max-w-[400px] mx-auto"
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}>
+            {showTooltip && (
+              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-lg text-sm">
+                This booking form is currently static
+              </div>
+            )}
+            <div className="border border-gray-200 rounded-xl p-6 shadow-sm">
+              <div className="flex justify-between items-center mb-6">
+                <div>
+                  <span className="text-2xl font-bold">${property.price}</span>
+                  <span className="text-gray-600">/night</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 37 35" fill="#FAC02B">
+                    <path d="M17.1044 2.60318C17.6447 1.51821 19.187 1.50262 19.7491 2.57645L24.1844 11.0507L34.5946 12.9634C35.5128 13.1321 35.8517 14.2713 35.1751 14.9145L28.2151 21.5306L29.5194 32.8088C29.6258 33.7291 28.6501 34.3865 27.8371 33.9423L18.4006 28.7859L9.01381 33.9151C8.19144 34.3645 7.20771 33.6868 7.3345 32.7583L8.86762 21.5306L1.69235 14.9265C0.997719 14.2871 1.33461 13.1289 2.2638 12.962L12.8983 11.0507L17.1044 2.60318Z" />
+                  </svg>
+                  <span>{property.rating}</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 mb-4">
+                <div className="border border-gray-300 rounded-lg p-3">
+                  <p className="text-xs font-medium">CHECK-IN</p>
+                  <p className="text-gray-600">Add date</p>
+                </div>
+                <div className="border border-gray-300 rounded-lg p-3">
+                  <p className="text-xs font-medium">CHECKOUT</p>
+                  <p className="text-gray-600">Add date</p>
+                </div>
+              </div>
+
+              <div className="border-t border-b border-gray-200 py-4 space-y-4 mb-4">
+                <div className="flex justify-between">
+                  <span>${property.price} x {nights} nights</span>
+                  <span>${subtotal}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Service fee</span>
+                  <span>${serviceFee}</span>
+                </div>
+                {weeklyDiscount > 0 && (
+                  <div className="flex justify-between text-green-600">
+                    <span>Weekly discount</span>
+                    <span>-${weeklyDiscount}</span>
+                  </div>
+                )}
+              </div>
+
+              <div className="flex justify-between font-bold mb-6">
+                <span>Total</span>
+                <span>${total}</span>
+              </div>
+
+              <button className="w-full bg-[#34967C] text-white py-3 rounded-lg hover:bg-opacity-90 transition-colors">
+                Reserve
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Description Section */}
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold mb-4">About this place</h2>
+        <p className="text-gray-600 leading-relaxed">{property.description}</p>
       </div>
 
-      {/* Booking Form - Full width below */}
-       {/* Description */}
-       <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-4">About this place</h2>
-            <p className="text-gray-600 leading-relaxed">{property.description}</p>
-          </div>
-        </div>
+      {/* Categories */}
+      <div className="flex flex-wrap gap-2">
+        {property.category.map((cat, index) => (
+          <span
+            key={index}
+            className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full"
+          >
+            {cat}
+          </span>
+        ))}
+      </div>
     </div>
   );
 };

@@ -29,7 +29,7 @@ const CancellationPolicy: React.FC = () => {
         </div>
 
         <p className="text-sm text-gray-500 mt-4">
-          Service fees are non-refundable. All times are calculated based on the property's local time zone.
+          Service fees are non-refundable. All times are calculated based on the property&apos;s local time zone.
         </p>
       </div>
     </div>

@@ -23,6 +23,7 @@ export default function BookingPage() {
     guests: 2,
     price: 150,
     total: 1050,
+    bookingFee: 50,
   });
 
   const [loading, setLoading] = useState(false);
@@ -42,10 +43,11 @@ export default function BookingPage() {
     setError(null);
 
     try {
-      const response = await axios.post("/api/bookings", formData);
+      await axios.post("/api/bookings", formData);
       alert("Booking confirmed!");
-    } catch (error) {
-      setError("Failed to submit booking.");
+    } catch (err) {
+      setError("Failed to submit booking. Please try again.");
+      console.error("Booking error:", err);
     } finally {
       setLoading(false);
     }
@@ -55,7 +57,7 @@ export default function BookingPage() {
     <div className="container mx-auto p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-    <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <BookingForm 
               formData={formData}
               onChange={handleInputChange}
@@ -72,8 +74,8 @@ export default function BookingPage() {
           </form>
         </div>
         <div className="space-y-6">
-        <OrderSummary bookingDetails={bookingDetails} />
-        <CancellationPolicy />
+          <OrderSummary bookingDetails={bookingDetails} />
+          <CancellationPolicy />
         </div>
       </div>
     </div>

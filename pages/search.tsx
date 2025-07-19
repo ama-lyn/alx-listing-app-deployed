@@ -2,21 +2,28 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { PROPERTYLISTINGSAMPLE } from '@/constants';
 import { PropertyProps } from '@/interfaces';
+import Image from 'next/image';
 
 // Import PropertyCard directly from PropertyListing component
 const PropertyCard: React.FC<{ property: PropertyProps }> = ({ property }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out cursor-pointer">
-      <div className="relative">
-        <img
+      <div className="relative h-48">
+        <Image
           src={property.image}
           alt={property.name}
-          className="w-full h-48 object-cover"
+          fill
+          className="object-cover"
         />
         {property.discount && (
-          <div className="absolute top-4 left-2 bg-[#2CC39B] text-white px-2 py-1 rounded text-sm flex items-center gap-2">
+          <div className="absolute top-4 left-2 bg-[#2CC39B] text-white px-2 py-1 rounded text-sm flex items-center gap-2 z-10">
             <div className="flex items-center gap-2">
-              <img src="/assets/images/Subtract.png" alt="discount" />
+              <Image 
+                src="/assets/images/Subtract.png" 
+                alt="discount"
+                width={16}
+                height={16}
+              />
               <span>{property.discount}% OFF</span>
             </div>
           </div>
@@ -66,15 +73,30 @@ const PropertyCard: React.FC<{ property: PropertyProps }> = ({ property }) => {
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2 text-sm text-gray-600 border border-[#E9E9E9] rounded-xl px-2 py-1">
             <div className="flex items-center">
-            <img src="/assets/images/bed.png" alt="Bed" className="size-[16px]" />
+              <Image 
+                src="/assets/images/bed.png" 
+                alt="Bed"
+                width={16}
+                height={16}
+              />
               <span className="pl-1">{property.offers.bed}</span>
             </div>
             <div className="flex items-center">
-            <img src="/assets/images/bathtub.png" alt="Shower" className="size-[15px]"/>
+              <Image 
+                src="/assets/images/bathtub.png" 
+                alt="Shower"
+                width={15}
+                height={15}
+              />
               <span className="pl-1">{property.offers.shower}</span>
             </div>
             <div className="flex items-center">
-            <img src="/assets/images/people.png" alt="Occupants" className="size-[16px]"/>
+              <Image 
+                src="/assets/images/people.png" 
+                alt="Occupants"
+                width={16}
+                height={16}
+              />
               <span className="pl-1">{property.offers.occupants}</span>
             </div>
           </div>
@@ -113,7 +135,7 @@ const SearchResults = () => {
     <div className="max-w-[1440px] mx-auto px-4">
       <div className="py-6">
         <h1 className="text-2xl font-semibold mb-2">
-          Search Results for "{search}"
+          Search Results for &ldquo;{search}&rdquo;
         </h1>
         <p className="text-gray-600 mb-6">
           {filteredProperties.length} {filteredProperties.length === 1 ? 'property' : 'properties'} found

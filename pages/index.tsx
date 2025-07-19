@@ -13,7 +13,6 @@ const Home: React.FC = () => {
 
   const handleSortChange = (option: string) => {
     setSortOption(option);
-    // SOrting logic
   };
 
   return (
@@ -30,7 +29,10 @@ const Home: React.FC = () => {
         onSortChange={handleSortChange}
       />
       
-      <PropertyListing activeFilter={activeFilter} />
+      <PropertyListing 
+        activeFilter={activeFilter}
+        sortOption={sortOption}
+      />
     </div>
   );
 };
