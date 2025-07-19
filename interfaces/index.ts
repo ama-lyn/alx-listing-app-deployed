@@ -19,7 +19,9 @@ export interface ButtonProps {
 }
 
 export interface PropertyProps {
+  id: number;
   name: string;
+  description: string;
   address: {
     city: string;
     country: string;

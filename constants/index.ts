@@ -15,9 +15,11 @@ export const IMAGES = {
 };
 
 
-export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
+export const PROPERTYLISTINGSAMPLE: PropertyProps [] = [
   {
+    id: 1,
     name: "Villa Arrecife Beach House",
+    description: "Experience luxury beachfront living in this stunning villa. Features include a private pool, direct beach access, and modern amenities throughout. Perfect for families or groups seeking a premium coastal retreat.",
     address: {
       city: "Sidemne, Bali",
       country: "Indonesia"
@@ -34,7 +36,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: ""
   },
   {
+    id: 2,
     name: "Entire cabin",
+    description: "Cozy mountain cabin surrounded by nature. This rustic yet comfortable retreat offers panoramic views, a fireplace, and complete privacy. Ideal for those seeking a peaceful mountain getaway.",
     address: {
       city: "Nova Friburgo",
       country: "Brazil"
@@ -51,7 +55,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "30"
   },
   {
+    id: 3,
     name: "Villa Lamp",
+    description: "Modern Mediterranean villa with stunning architectural design. Features include a private garden, contemporary furnishings, and a serene atmosphere. Perfect for design enthusiasts and luxury seekers.",
     address: {
       city: "Benahavis",
       country: "Spain"
@@ -68,7 +74,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: ""
   },
   {
+    id: 4,
     name: "Earthen home",
+    description: "Unique eco-friendly home built with sustainable materials. This property offers a one-of-a-kind stay with natural cooling, organic gardens, and authentic local architecture. Perfect for environmentally conscious travelers.",
     address: {
       city: "Santa Maria",
       country: "Colombia"
@@ -85,7 +93,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "15"
   },
   {
+    id: 5,
     name: "Private Room",
+    description: "Elegant private suite in a traditional Brazilian home. Featuring high ceilings, colonial architecture, and access to a shared garden. Perfect for solo travelers or couples.",
     address: {
       city: "Moeda",
       country: "Brazil"
@@ -102,7 +112,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "20"
   },
   {
+    id: 6,
     name: "Gokce Gemile Estate",
+    description: "Luxurious Turkish estate with breathtaking Mediterranean views. This expansive property features traditional architecture, multiple terraces, and a large pool. Ideal for large groups or special events.",
     address: {
       city: "Kayaköy",
       country: "Turkey"
@@ -119,7 +131,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: ""
   },
   {
+    id: 7,
     name: "Luxury 1000 sqm Villa...",
+    description: "Spacious Moroccan villa combining traditional design with modern luxury. Features include a courtyard pool, hammam, and roof terrace with Atlas Mountains views. Perfect for luxury travelers seeking authentic Moroccan style.",
     address: {
       city: "Marrakech",
       country: "Morocco"
@@ -136,7 +150,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "10"
   },
   {
+    id: 8,
     name: "Palais Hassoun Marrakech",
+    description: "Historic palace turned luxury accommodation in the heart of Marrakech. Featuring intricate Moroccan craftsmanship, multiple courtyards, and traditional furnishings. An authentic royal experience.",
     address: {
       city: "Marrakech",
       country: "Morocco"
@@ -153,7 +169,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "25"
   },
   {
+    id: 9,
     name: "Villa l 'Oui d' Or",
+    description: "Charming villa combining French and Moroccan influences. Features include a private pool, garden, and elegant interiors. Perfect for those seeking a romantic getaway.",
     address: {
       city: "Marrakech",
       country: "Morocco"
@@ -170,7 +188,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: ""
   },
   {
+    id: 10,
     name: "Designer villa, pool not ...",
+    description: "Contemporary designer villa showcasing modern Moroccan architecture. Featuring stylish interiors, outdoor living spaces, and artistic touches throughout. Ideal for design enthusiasts.",
     address: {
       city: "Marrakech",
       country: "Morocco"
@@ -187,10 +207,12 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "40"
   },
   {
+    id: 11,
     name: "Royal Zephyr - Marrakech",
+    description: "Ultra-luxury villa offering the ultimate Moroccan experience. Features include a grand pool, private spa, and butler service. Perfect for those seeking the finest accommodations in Marrakech.",
     address: {
-     city: "Marrakech",
-     country: "Morocco"
+      city: "Marrakech",
+      country: "Morocco"
     },
     rating: 4.93,
     category: ["Top Villa", "Self Check-in", "Free Schedule"],
@@ -204,10 +226,12 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "50"
   },
   {
+    id: 12,
     name: "Rïad Mayo & Bungalows",
+    description: "Traditional riad with modern bungalows in a peaceful setting. Combining authentic Moroccan architecture with contemporary comfort. Great for experiencing both traditional and modern Morocco.",
     address: {
-     city: "Sidi Abdallah Ghiat",
-     country: "Morocco"
+      city: "Sidi Abdallah Ghiat",
+      country: "Morocco"
     },
     rating: 4.83,
     category: ["Top Villa", "Self Check-in", "Free Schedule"],
@@ -221,7 +245,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: ""
   },
   {
+    id: 13,
     name: "Casa de Carolina",
+    description: "Beachfront Spanish villa with Mediterranean charm. Features include direct beach access, a private pool, and spacious terraces. Perfect for beach lovers and sun seekers.",
     address: {
       city: "Playas de Vera",
       country: "Spain"
@@ -238,7 +264,9 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     discount: "35"
   },
   {
+    id: 14,
     name: "Happy Valley Villa, Tuni...",
+    description: "Intimate villa in the heart of Tunisia's Happy Valley. Featuring traditional architecture, a private courtyard, and modern amenities. Perfect for couples seeking a romantic getaway.",
     address: {
       city: "Qaroun",
       country: "Egypt"
@@ -253,39 +281,5 @@ export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
     },
     image: "/assets/images/image 15.png",
     discount: ""
-  },
-  {
-    name: "Almyros Residence ",
-    address: {
-      city: "Lasithi",
-      country: "Greece"
-    },
-    rating: 4.97,
-    category: ["Top Villa", "Self Check-in", "Free Schedule"],
-    price: 4500,
-    offers: {
-      bed: "4",
-      shower: "4",
-      occupants: "6-8"
-    },
-    image: "/assets/images/image 16.png",
-    discount: "20"
-  },
-  {
-    name: "Villa White Stone mode...",
-    address: {
-      city: "Marrakech",
-      country: "Morocco"
-    },
-    rating: 4.58,
-    category: ["Top Villa", "Self Check-in", "Book Now Pay Later"],
-    price: 1798,
-    offers: {
-      bed: "7",
-      shower: "6",
-      occupants: "12"
-    },
-    image: "/assets/images/image 17.png",
-    discount: "25"
   }
 ];

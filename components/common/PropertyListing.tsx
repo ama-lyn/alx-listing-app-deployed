@@ -1,9 +1,19 @@
 import { PROPERTYLISTINGSAMPLE } from "@/constants/index";
 import { PropertyProps } from "@/interfaces";
+import { useRouter } from 'next/router';
 
 const PropertyCard: React.FC<{ property: PropertyProps }> = ({ property }) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/property/${property.id}`);
+  };
+
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out cursor-pointer">
+    <div 
+      onClick={handleClick}
+      className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out cursor-pointer"
+    >
       <div className="relative">
         <img
           src={property.image}
